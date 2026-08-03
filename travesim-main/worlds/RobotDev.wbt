@@ -1,0 +1,47 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/VssReferee.proto"
+EXTERNPROTO "../protos/VssField3v3.proto"
+EXTERNPROTO "../protos/VssBall.proto"
+EXTERNPROTO "../protos/GenericVssRobot.proto"
+
+WorldInfo {
+  basicTimeStep 10
+  contactProperties [
+    ContactProperties {
+      material1 "base_mat"
+      coulombFriction [
+        0.1
+      ]
+      maxContactJoints 20
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.32110586614520514 0.32191125044882785 0.8906537877096855 1.6838580147425646
+  position -0.027876055475360796 -2.3884304502978964 2.0882842442298304
+}
+DirectionalLight {
+}
+VssReferee {
+}
+TexturedBackground {
+}
+VssField3v3 {
+}
+VssBall {
+  translation 0 0 0.021327436999999994
+}
+GenericVssRobot {
+  hidden position_0_0 9.891786461547019e-14
+  hidden position_0_1 -9.848183781987922e-14
+  translation 0.1500000000015107 1.3862164795341707e-11 0.0019768680199989327
+  rotation 3.778930813784767e-10 3.4637237433298278e-09 1 -3.1415899999999994
+  name "YellowRobot0"
+  controller "controller_wheels"
+  teamName "yellow"
+  teamColor 1 1 0
+  leftWheelTranslation -2.7755575615628914e-17 0.02750000000000476 0.02300070631280689
+  rightWheelTranslation -5.551115123125783e-17 -0.027499999999995244 0.023000706327192855
+}

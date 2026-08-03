@@ -1,0 +1,177 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/VssReferee.proto"
+EXTERNPROTO "../protos/VssField5v5.proto"
+EXTERNPROTO "../protos/VssBall.proto"
+EXTERNPROTO "../protos/GenericVssRobot.proto"
+
+WorldInfo {
+  basicTimeStep 10
+  contactProperties [
+    ContactProperties {
+      material1 "base_mat"
+      coulombFriction [
+        0.1
+      ]
+      maxContactJoints 20
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.25951816808459127 0.2621283262728334 0.9294832225486488 1.633884408162661
+  position -0.022562630294748403 -2.9812782142632552 1.8220796956738359
+}
+DirectionalLight {
+}
+VssReferee {
+  robotsPerTeam 5
+}
+TexturedBackground {
+}
+VssField5v5 {
+}
+VssBall {
+  translation 0 0 0.021327437000000008
+}
+GenericVssRobot {
+  hidden position_0_0 9.889092178959775e-14
+  hidden position_0_1 9.8867324999546e-14
+  translation 0.1500000000013932 1.3344853116385533e-11 0.0019775743399987264
+  rotation 3.48376385179167e-10 3.335590512469692e-09 1 -3.1415899999999977
+  name "YellowRobot0"
+  controller "vss_robot_controller"
+  teamName "yellow"
+  teamColor 1 1 0
+  leftWheelTranslation 2.220446049250313e-16 0.027500000000002352 0.02300035315640279
+  rightWheelTranslation 2.220446049250313e-16 -0.027499999999997644 0.023000353163597196
+}
+GenericVssRobot {
+  hidden position_0_0 9.884630189022735e-14
+  hidden position_0_1 -9.834970646881397e-14
+  translation 0.3000000000953592 0.4500000000133448 0.001977574339998754
+  rotation 2.384123195565342e-08 3.3356217126018276e-09 0.9999999999999998 -3.1415899999999977
+  name "YellowRobot1"
+  controller "vss_robot_controller"
+  teamName "yellow"
+  robotNumber 1
+  teamColor 1 1 0
+  robotPrimaryColor 0 1 0
+  robotSecondaryColor 1 0 1
+  leftWheelTranslation 1.532107773982716e-14 0.027500000000002356 0.02300035315640279
+  rightWheelTranslation 1.5210055437364645e-14 -0.027499999999997637 0.0230003531635972
+}
+GenericVssRobot {
+  hidden position_0_0 9.884630189022735e-14
+  hidden position_0_1 -9.834970646881397e-14
+  translation 0.3000000000953592 -0.44999999998665524 0.001977574339998754
+  rotation 2.384123195565342e-08 3.3356217126018276e-09 0.9999999999999998 -3.1415899999999977
+  name "YellowRobot2"
+  controller "vss_robot_controller"
+  teamName "yellow"
+  robotNumber 2
+  teamColor 1 1 0
+  robotPrimaryColor 0 1 1
+  leftWheelTranslation 1.5265566588595902e-14 0.027500000000002356 0.02300035315640279
+  rightWheelTranslation 1.5154544286133387e-14 -0.027499999999997637 0.0230003531635972
+}
+GenericVssRobot {
+  hidden position_0_0 -9.840286837034196e-14
+  hidden position_0_1 -9.841669879481668e-14
+  translation 0.30000000010190725 0.8000000000133445 0.001977574339998761
+  rotation 2.5478287339189685e-08 3.335623889769213e-09 0.9999999999999998 -3.1415900000000017
+  name "YellowRobot3"
+  controller "vss_robot_controller"
+  teamName "yellow"
+  robotNumber 3
+  robotPrimaryColor 0 1 0
+  robotSecondaryColor 1 0 0
+  leftWheelTranslation 1.63202784619898e-14 0.0275000000000023 0.023000353156402795
+  rightWheelTranslation 1.6209256159527285e-14 -0.027499999999997637 0.023000353163597203
+}
+GenericVssRobot {
+  hidden position_0_0 -9.840286837034196e-14
+  hidden position_0_1 -9.841669879481668e-14
+  translation 0.30000000010190725 -0.7999999999866556 0.001977574339998761
+  rotation 2.5478287339189685e-08 3.335623889769213e-09 0.9999999999999998 -3.1415900000000017
+  name "YellowRobot4"
+  controller "vss_robot_controller"
+  teamName "yellow"
+  robotNumber 4
+  robotPrimaryColor 0 1 1
+  robotSecondaryColor 1 0 1
+  leftWheelTranslation 1.63202784619898e-14 0.0275000000000023 0.02300035315640279
+  rightWheelTranslation 1.6209256159527285e-14 -0.027499999999997637 0.023000353163597203
+}
+GenericVssRobot {
+  hidden position_0_0 -9.924458066362668e-14
+  hidden position_0_1 9.896706234068721e-14
+  translation -0.1499999999993146 -1.3344862410613495e-11 0.0019775743399987264
+  rotation 0.9986823414198359 0.051318426854613505 -1.1670174359454648e-06 6.679982135556889e-09
+  name "BlueRobot0"
+  controller "vss_robot_controller"
+  teamName "blue"
+  leftWheelTranslation -8.326672684688674e-17 0.02750000000000236 0.023000353156402784
+  rightWheelTranslation -8.326672684688674e-17 -0.027499999999997648 0.0230003531635972
+}
+GenericVssRobot {
+  hidden position_0_0 9.88970866392001e-14
+  hidden position_0_1 9.90379352612459e-14
+  translation -0.29999999999762683 0.4499999999866552 0.0019775743399987264
+  rotation 0.9845434332377878 0.1751405951462064 -4.270113927929683e-07 6.775912418168046e-09
+  name "BlueRobot1"
+  controller "vss_robot_controller"
+  teamName "blue"
+  robotNumber 1
+  robotPrimaryColor 0 1 0
+  robotSecondaryColor 1 0 1
+  leftWheelTranslation -4.440892098500626e-16 0.0275000000000023 0.023000353156402788
+  rightWheelTranslation -4.440892098500626e-16 -0.027499999999997693 0.023000353163597193
+}
+GenericVssRobot {
+  hidden position_0_0 -9.996772191243525e-14
+  hidden position_0_1 -9.969468966076586e-14
+  hidden linearVelocity_0 -5.170148630129149e-15 1.036666538728986e-15 -4.780126911580535e-16
+  hidden angularVelocity_0 2.0281380359072392e-16 2.548326436943318e-14 6.4624267989627585e-15
+  hidden linearVelocity_5 -1.7607801815799727e-14 -7.530569840475455e-16 -4.694130796962034e-16
+  hidden angularVelocity_5 9.920544742021985e-17 -9.752832600703136e-13 6.399320170764431e-15
+  hidden linearVelocity_6 -1.9259094189981076e-14 -7.217781078220174e-16 -5.803708031507758e-16
+  hidden angularVelocity_6 -3.5491993902754192e-15 -9.783934005664218e-13 6.4380151289027155e-15
+  translation -0.30002078229431534 -0.4499999999931994 0.002010858768562992
+  rotation 5.2894364929523495e-08 -0.9999999999999987 -5.919983442698873e-09 0.05365353555473333
+  name "BlueRobot2"
+  controller "vss_robot_controller"
+  teamName "blue"
+  robotNumber 2
+  robotPrimaryColor 0 1 1
+  leftWheelTranslation 1.8742162155582776e-08 0.027500000000001135 0.02300034898304678
+  rightWheelTranslation 1.874232646859042e-08 -0.02749999999999886 0.02300034898611065
+}
+GenericVssRobot {
+  hidden position_0_0 -9.841612451309961e-14
+  hidden position_0_1 9.907216489435443e-14
+  translation -0.299999999998449 0.7999999999866553 0.0019775743399987333
+  rotation 0.9933121830138013 0.11545954735219746 1.2577575182157663e-06 6.716096115596216e-09
+  name "BlueRobot3"
+  controller "vss_robot_controller"
+  teamName "blue"
+  robotNumber 3
+  robotPrimaryColor 0 1 0
+  robotSecondaryColor 1 0 0
+  leftWheelTranslation -2.7755575615628914e-16 0.0275000000000023 0.02300035315640278
+  rightWheelTranslation -3.3306690738754696e-16 -0.027499999999997637 0.023000353163597186
+}
+GenericVssRobot {
+  hidden position_0_0 -9.841612451309961e-14
+  hidden position_0_1 9.907216489435443e-14
+  translation -0.299999999998449 -0.8000000000133448 0.0019775743399987333
+  rotation 0.9933121830138013 0.11545954735219746 1.2577575182157663e-06 6.716096115596216e-09
+  name "BlueRobot4"
+  controller "vss_robot_controller"
+  teamName "blue"
+  robotNumber 4
+  robotPrimaryColor 0 1 1
+  robotSecondaryColor 1 0 1
+  leftWheelTranslation -2.7755575615628914e-16 0.0275000000000023 0.023000353156402777
+  rightWheelTranslation -3.3306690738754696e-16 -0.027499999999997637 0.023000353163597186
+}

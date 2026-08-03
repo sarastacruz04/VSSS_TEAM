@@ -1,0 +1,317 @@
+#VRML_SIM R2025a utf8
+# template language: javascript
+# license: MIT License
+# license url: https://mit-license.org/
+# This is a proto file for Webots for the GenericVssRobot
+# Extracted from: /home/felipe/Documents/Thunder/tv_ws/compiled.urdf
+
+PROTO GenericVssRobot [
+  field  SFVec3f     translation            0 0 0
+  field  SFRotation  rotation               0 0 1 0
+  field  SFString    name                   "GenericVssRobot"  # Is `Robot.name`.
+  field  SFString    controller             "<none>"           # Is `Robot.controller`.
+  field  SFString    teamName               ""                 # Is `Robot.controller`.
+  field  SFInt32     robotNumber            0                  # Is `Robot.controller`.
+  field  MFString    controllerArgs         []                 # Is `Robot.controllerArgs`.
+  field  SFString    customData             ""                 # Is `Robot.customData`.
+  field  SFBool      supervisor             FALSE              # Is `Robot.supervisor`.
+  field  SFBool      synchronization        TRUE               # Is `Robot.synchronization`.
+  field  SFBool      selfCollision          FALSE              # Is `Robot.selfCollision`.
+  field  SFColor     teamColor              0.0 0.0 1.0        # RGB, 0-1 range
+  field  SFColor     robotPrimaryColor      1.0 0.0 0.0        # RGB, 0-1 range
+  field  SFColor     robotSecondaryColor    0.0 1.0 0.0        # RGB, 0-1 range
+  field  SFColor     bodyColor              0.5 0.5 0.5        # RGB, 0-1 range
+
+  field  SFFloat     wheelRadius            0.025
+  field  SFFloat     wheelThickness         0.008
+  field  SFVec3f     leftWheelTranslation   0.000000  0.027500 0.023000
+  field  SFVec3f     rightWheelTranslation  0.000000 -0.027500 0.023000
+
+  field  SFFloat     wheelMass              0.018
+  field  SFFloat     bodyMass               0.144
+]
+{
+  %<
+    const team_name = fields.teamName.value
+    const robot_number = fields.robotNumber.value
+  >%
+  Robot {
+    name IS name
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs [
+      "%<= team_name >%"
+      "%<= robot_number >%"
+    ]
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Transform {
+        translation 0 0 0.03
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor IS bodyColor
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Box {
+              size 0.055 0.05 0.06
+            }
+          }
+          Transform {
+            translation 0 0.03125 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor IS bodyColor
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.075 0.0125 0.06
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0 -0.03125 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor IS bodyColor
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.075 0.0125 0.06
+                }
+              }
+            ]
+          }
+        ]
+      }
+      Solid {
+        translation 0.000000 0.000000 0.061000
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor IS bodyColor
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Box {
+               size 0.075000 0.075000 0.002000
+            }
+          }
+          Solid {
+            translation 0.017500 0.000000 0.002000
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor IS teamColor
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry Box {
+                   size 0.030000 0.065000 0.002000
+                }
+              }
+            ]
+            name "team_blob_link"
+            boundingObject NULL
+            physics NULL
+          }
+          Solid {
+            translation -0.017500 0.017500 0.002000
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor IS robotPrimaryColor
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry Box {
+                   size 0.030000 0.030000 0.002000
+                }
+              }
+            ]
+            name "robot_blob_0_link"
+          }
+          Solid {
+            translation -0.017500 -0.017500 0.002000
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor IS robotSecondaryColor
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry Box {
+                   size 0.030000 0.030000 0.002000
+                }
+              }
+            ]
+            name "robot_blob_1_link"
+          }
+        ]
+        name "chapeu_link"
+        boundingObject NULL
+        physics NULL
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 1.000000 0.000000
+          anchor IS rightWheelTranslation
+          dampingConstant 0.0023
+          staticFriction 0.01
+        }
+        device [
+          RotationalMotor {
+            name "right_motor"
+            maxVelocity 68.0
+            maxTorque 0.073
+          }
+          PositionSensor {
+            name "roda_dir_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation IS rightWheelTranslation
+          children [
+            Pose {
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.0 0.8 0.0
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    radius IS wheelRadius
+                    height IS wheelThickness
+                  }
+                }
+              ]
+            }
+          ]
+          name "roda_dir_link"
+          contactMaterial "roda_dir_mat"
+          boundingObject Pose {
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius IS wheelRadius
+                height IS wheelThickness
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass IS wheelMass
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 1.000000 0.000000
+          anchor IS leftWheelTranslation
+          dampingConstant 0.0023
+          staticFriction 0.01
+        }
+        device [
+          RotationalMotor {
+            name "left_motor"
+            maxVelocity 68.0
+            maxTorque 0.073
+          }
+          PositionSensor {
+            name "roda_esq_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation IS leftWheelTranslation
+          children [
+            Pose {
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.0 0.8 0.0
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    radius IS wheelRadius
+                    height IS wheelThickness
+                  }
+                }
+              ]
+            }
+          ]
+          name "roda_esq_link"
+          contactMaterial "roda_esq_mat"
+          boundingObject Pose {
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius IS wheelRadius
+                height IS wheelThickness
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass IS wheelMass
+          }
+        }
+      }
+      Receiver{
+        type "radio"
+        name "robot_receiver"
+      }
+    ]
+    contactMaterial "base_mat"
+    boundingObject Group{
+      children [
+        Transform {
+          translation 0 0 0.03
+          children [
+            Box {
+              size 0.055 0.05 0.06
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.03125 0.03
+          children [
+            Box {
+              size 0.075 0.0125 0.06
+            }
+          ]
+        }
+        Transform {
+          translation 0 -0.03125 0.03
+          children [
+            Box {
+              size 0.075 0.0125 0.06
+            }
+          ]
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass IS bodyMass
+      centerOfMass [ 0.000000 -0.000000 0.030022 ]
+      inertiaMatrix [
+        7.537487e-05 7.949780e-05 8.667192e-05
+        1.001923e-21 -2.053691e-21 4.676734e-21
+      ]
+    }
+  }
+}
