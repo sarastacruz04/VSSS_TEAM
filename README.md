@@ -34,7 +34,7 @@ Puerto: Es el número de canal por el que viaja un tipo específico de datos (ej
 Socket UDP: Es la herramienta de código en Python que abre la puerta de ese puerto para enviar o recibir esos paquetes de datos veloces.
 
 
-DESAFIOS Y SOLUCIONES
+cd DESAFIOS Y SOLUCIONES
 Incompatibilidad de permisos Supervisor vs Robot (Error: ignoring illegal call...)	
 -> Se intentó llamar a getPosition() desde un nodo Robot estándar. Webots prohíbe a un jugador actuar como administrador del mundo.	
 -> Reestructuramos el código: mantuvimos a controller_wheels.py como un Robot puro y pasamos la lectura de posición al módulo de red/visión independiente.
