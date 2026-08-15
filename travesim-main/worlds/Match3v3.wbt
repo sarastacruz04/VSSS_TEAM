@@ -37,8 +37,9 @@ GenericVssRobot {
   translation 0.15 0 0.0025
   rotation 0 0 1 -3.14159
   name "YellowRobot0"
-  controller "controller_wheels"
+  controller "vss_robot_controller"
   teamName "yellow"
+  robotNumber 0
   teamColor 1 1 0
 }
 GenericVssRobot {
@@ -67,6 +68,7 @@ GenericVssRobot {
   name "BlueRobot0"
   controller "vss_robot_controller"
   teamName "blue"
+  robotNumber 0
 }
 GenericVssRobot {
   translation -0.3 0.45 0.0025

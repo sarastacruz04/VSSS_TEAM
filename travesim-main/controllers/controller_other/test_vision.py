@@ -1,29 +1,38 @@
+import json
 import socket
-import struct
 
-UDP_IP = "224.0.0.1"
+
+UDP_IP = "127.0.0.1"
 UDP_PORT = 10002
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
-# Configuramos un tiempo límite de 2 segundos para que no se quede bloqueado eternamente
 sock.settimeout(2.0)
-sock.bind(('', UDP_PORT))
+sock.bind((UDP_IP, UDP_PORT))
 
-group = socket.inet_aton(UDP_IP)
-mreq = struct.pack("4sL", group, socket.INADDR_ANY)
-sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
-
-print(f"Escuchando datos de visión en {UDP_IP}:{UDP_PORT}...")
+print(f"Escuchando vision JSON en {UDP_IP}:{UDP_PORT}...")
 
 try:
     while True:
         try:
             data, addr = sock.recvfrom(65535)
-            print(f"¡Paquete recibido! Tamaño: {len(data)} bytes")
+            env = json.loads(data.decode("utf-8"))
+
+            ball = env["frame"]["ball"]
+            yellow = env["frame"]["robots_yellow"]
+            blue = env["frame"]["robots_blue"]
+
+            print(
+                f"step={env['step']} "
+                f"ball=({ball['x']:.3f}, {ball['y']:.3f}) "
+                f"yellow0=({yellow[0]['x']:.3f}, {yellow[0]['y']:.3f}) "
+                f"blue0=({blue[0]['x']:.3f}, {blue[0]['y']:.3f}) "
+                f"desde={addr}"
+            )
         except socket.timeout:
-            print("Esperando paquetes de la cancha... (asegúrate de que Webots esté corriendo con Play)")
+            print("Esperando vision JSON... asegúrate de que Match3v3.wbt este en Play")
 except KeyboardInterrupt:
     print("\nMonitoreo detenido.")
+finally:
     sock.close()
